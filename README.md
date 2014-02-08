@@ -26,7 +26,7 @@ The Reducer will output the KeyValue format "userID1<tab>userID2,numberOfCommonF
 suggested friend userID2 with number of common friends for userID1. This pair design strategy is very critical 
 as there are no other ways to solve this problem in a MapReduce way. The idea is shown in the following chart:
 
-userID0 <Tab> *****,userID1,userID2,******* -> <userID1, userID2>, 1
+userID0&lt;tab>*****,userID1,userID2,******* &lt;-> <userID1, userID2>, 1
 
 
 3. The second MapReduce job is called "jobRecommendFriends". It will map the "userID1<tab>userID2,numberOfCommonFriends" 
