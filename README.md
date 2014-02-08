@@ -10,6 +10,8 @@ where RecommendFriendID is a list of recommended UserID separated by comma. The 
 be in a decreasing order of the number of mutual friends. If there are recommended users with the same 
 number of mutual friends, then output those user IDs in numerically ascending order.
 
+
+
 The idea is to use chained MapReduce jobs with the work flow map1-reduce1-map2-reduce2.
 
 1. To implement the chained MapReduce work flow, I use "JobControl" from 
@@ -22,7 +24,12 @@ who have the common friend userID where both userID1 and userID2 are from Friend
 the number of common friends for each pair <userID1, userID2> and delete those pairs who are already friends. 
 The Reducer will output the KeyValue format "userID1<tab>userID2,numberOfCommonFriends" which contains the 
 suggested friend userID2 with number of common friends for userID1. This pair design strategy is very critical 
-as there are no other ways to solve this problem in a MapReduce way.
+as there are no other ways to solve this problem in a MapReduce way. The idea is shown in the following chart:
+
+userID0<tab>*****,userID1,userID2,*******
+-> 
+<userID1, userID2>, 1
+
 
 3. The second MapReduce job is called "jobRecommendFriends". It will map the "userID1<tab>userID2,numberOfCommonFriends" 
 to my designed structure "userID1<tab>FriendInformation where FriendInformation has a String variable to store "userID2" 
