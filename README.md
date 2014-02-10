@@ -2,9 +2,7 @@ chainMapReduce
 ==============
 
 This code is trying to implement a friend recommendation algorithm by automatically chaining 2 Hadoop MapReduce jobs. 
-The details of this algorithm are described in Stanford Course CS 246, 2014 HW1. Each line in the input text file 
-(http://snap.stanford.edu/class/cs246-data/hw1q1.zip) records UserID&lt;tab>FriendID where 
-FriendID is a list of user's friend separated by comma. The algorithm will recommend 10 users
+It runs successfully under Cloudera Quickstart VM with Hadoop 2.0. The details of this algorithm are described in Stanford Course CS 246, 2014 HW1. Each line in the input text file (http://snap.stanford.edu/class/cs246-data/hw1q1.zip) records UserID&lt;tab>FriendID where FriendID is a list of user's friend separated by comma. The algorithm will recommend 10 users
 with most common friends outside the friendlist for each UserID with a format UserID&lt;tab>RecommendFriendID 
 where RecommendFriendID is a list of recommended UserID separated by comma. The recommended UserID will 
 be in a decreasing order of the number of mutual friends. If there are recommended users with the same 
